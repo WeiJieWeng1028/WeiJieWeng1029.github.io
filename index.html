@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="UTF-8" />
+   <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wei-Jie Weng | Film Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: #000;
+      color: #eee;
+      min-height: 100vh;
+      position: relative;
+    }
+
+    body::before {
+      content: "";
+      pointer-events: none;
+      position: fixed;
+      inset: 0;
+      background: url('https://www.transparenttextures.com/patterns/noise-pattern-with-subtle-cross-lines.png');
+      opacity: 0.1;
+      z-index: 9999;
+    }
+
+    .top-bar {
+      width: 100%;
+      background-color: #000;
+      color: #fff;
+      text-align: center;
+      padding: 0.4rem 1rem;
+      font-size: 0.9rem;
+      font-weight: bold;
+      position: fixed;
+      top: 0;
+      left: 0;
+      z-index: 11000;
+      letter-spacing: 1px;
+    }
+
+    nav {
+      position: fixed;
+      top: 30px;
+      left: 0; right: 0;
+      height: 60px;
+      background: rgba(10, 10, 10, 0.85);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 2rem;
+      gap: 1.5rem;
+      z-index: 10000;
+    }
+
+    nav a {
+      color: #eee;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.4rem;
+      font-family: 'Montserrat', sans-serif;
+      transition: color 0.3s ease;
+    }
+
+    nav a:hover {
+      color: #bbb;
+    }
+
+    .intro {
+      display: flex;
+      justify-content: flex-start;
+      align-items: center;
+      padding: 4rem 1rem 2rem;
+      margin-top: 100px;
+      background-color: #000;
+      flex-direction: row;
+      text-align: left;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .intro img {
+      width: 585px;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 4px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+    }
+
+    .intro-text {
+      max-width: 1200px;
+    }
+
+    .intro-text h1 {
+      font-size: 3rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .intro-text h1 span {
+      display: inline-block;
+      vertical-align: baseline;
+      line-height: 1;
+    }
+
+    .intro-text p {
+      font-size: 1rem;
+      line-height: 1.5;
+      color: #ccc;
+    }
+
+    .separator {
+      text-align: center;
+      font-size: 1.5rem;
+      color: #666;
+      margin: 1rem 0;
+    }
+
+    .slider-container {
+      overflow: hidden;
+      padding: 1rem;
+      background-color: #000;
+    }
+
+    .slider {
+      display: flex;
+      width: max-content;
+      animation: scroll-left 240s linear infinite;
+    }
+
+    .slider > .photo-card {
+      flex: 0 0 auto;
+      width: 68vw;
+      max-width: 640px;
+      border-radius: 0px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(255,255,255,0.1);
+      cursor: pointer;
+      margin-right: 1rem;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .slider > .photo-card img {
+      width: 100%;
+      height: auto;
+      display: block;
+      user-select: none;
+    }
+
+    @keyframes scroll-left {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(calc(-50%)); }
+    }
+
+    .experience {
+      display: flex;
+      gap: 2rem;
+      padding: 4rem 1rem 2rem;
+      margin-top: 8rem;
+      background-color: #000;
+      color: #ccc;
+      height: 600px;
+      align-items: stretch;
+      flex-wrap: nowrap;
+    }
+
+    .experience .text-list {
+      flex: 1 1 auto;
+      font-size: 0.95rem;
+      line-height: 1.6;
+      border-left: 1px solid #444;
+      padding-left: 1rem;
+      overflow: hidden;
+      position: relative;
+      height: 100%;
+      order: 0;
+    }
+
+    .experience .text-list .scroll-content {
+      display: inline-block;
+      animation: scroll-up 120s linear infinite;
+    }
+
+    .experience .text-list .scroll-content:nth-child(2) {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+    }
+
+    .experience img {
+      width: auto;
+      height: 100%;
+      max-width: 40vw;
+      border-radius: 4px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.1);
+      flex-shrink: 0;
+      order: 1;
+    }
+
+    @keyframes scroll-up {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-100%); }
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #777;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+      background-color: #000;
+    }
+
+    .footer-slider-container {
+  overflow: hidden;
+  background-color: #000;
+  padding: 1rem;
+}
+
+.footer-slider {
+  display: flex;
+  width: max-content;
+  animation: scroll-left-footer 160s linear infinite;
+}
+
+.footer-slider .photo-card {
+  flex: 0 0 auto;
+  width: 68vw;
+  max-width: 640px;
+  border-radius: 0;
+  overflow: hidden;
+  box-shadow: 0 0 15px rgba(255,255,255,0.1);
+  margin-right: 1rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.footer-slider .photo-card img {
+  width: 100%;
+  height: auto;
+  display: block;
+  user-select: none;
+}
+
+@keyframes scroll-left-footer {
+  0% { transform: translateX(calc(-50%)); }
+  100% { transform: translateX(0); }
+}
+
+.photo-card {
+  width: 68vw;
+  height: 38vw; /* 或改成固定高度如 400px */
+  max-width: 640px;
+  max-height: 360px; /* 可依需要調整 */
+  overflow: hidden;
+  position: relative;
+  flex: 0 0 auto;
+  margin-right: 1rem;
+  border-radius: 4px;
+  box-shadow: 0 0 15px rgba(255,255,255,0.1);
+}
+
+.photo-card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  object-position: left ; /* 圖片會從中間開始裁切 */
+}
+
+  </style>
+  
+</head>
+<body>
+
+  <div class="top-bar">Wei Jie Weng | Film </div>
+
+  <nav>
+   <a href="index.html#about">𝗔𝗯𝗼𝘂𝘁</a>
+    <a href="film.html">𝗙𝗶𝗹𝗺</a>
+    <a href="contact.html">𝗖𝗼𝗻𝘁𝗮𝗰𝘁</a>
+  </nav>
+
+  <section class="intro" id="about">
+    <img src="portrait.jpg" alt="Portrait of Wei-Jie Weng" />
+    <div class="intro-text">
+      <h1>𝗔𝗕𝗢𝗨𝗧｜<span>關於我</span></h1>
+      
+      <p>我是煒傑｜Wei Jie ，2001年出生於高雄，畢業於長榮大學大眾傳播學系，在大四期間開始從事自由接案，擔任職位大多為攝影及攝影助理，嘗試每一次商案中加入一點自身的創意，讓每一次的商案拍攝都能夠加上一些自己的巧思與色彩。</p>
+      <p class="separator"></p>
+      <p>I am Wei-Jie, born in 2001 in Kaohsiung. I graduated from Chang Jung Christian University with a degree in Mass Communication. During my senior year, I started freelancing, mostly working as a photographer and photography assistant. I always try to add a touch of my own creativity to each project to bring unique ideas and colors to every shoot.</p>
+  </section>
+
+  <section id="film">
+    <div class="slider-container" aria-label="Portfolio photos slider">
+      <div class="slider" aria-live="polite" aria-atomic="true">
+        <div class="photo-card"><img src="image_negative film/001.jpg" alt="Photo 1" /></div>
+        <div class="photo-card"><img src="image_negative film/002.jpg" alt="Photo 2" /></div>
+        <div class="photo-card"><img src="image_negative film/003.jpg" alt="Photo 3" /></div>
+        <div class="photo-card"><img src="image_negative film/004.jpg" alt="Photo 4" /></div>
+        <div class="photo-card"><img src="image_negative film/006.jpg" alt="Photo 6" /></div>
+        <div class="photo-card"><img src="image_negative film/008.jpg" alt="Photo 8" /></div>
+        <div class="photo-card"><img src="image_negative film/009.jpg" alt="Photo 9" /></div>
+        <div class="photo-card"><img src="image_negative film/010.jpg" alt="Photo 10" /></div>
+        <div class="photo-card"><img src="image_negative film/012.jpg" alt="Photo 12" /></div>
+        <div class="photo-card"><img src="image_negative film/013.jpg" alt="Photo 13" /></div>
+        <div class="photo-card"><img src="image_negative film/001.jpg" alt="Photo 1" /></div>
+        <div class="photo-card"><img src="image_negative film/002.jpg" alt="Photo 2" /></div>
+        <div class="photo-card"><img src="image_negative film/003.jpg" alt="Photo 3" /></div>
+        <div class="photo-card"><img src="image_negative film/004.jpg" alt="Photo 4" /></div>
+        <div class="photo-card"><img src="image_negative film/006.jpg" alt="Photo 6" /></div>
+        <div class="photo-card"><img src="image_negative film/008.jpg" alt="Photo 8" /></div>
+        <div class="photo-card"><img src="image_negative film/009.jpg" alt="Photo 9" /></div>
+        <div class="photo-card"><img src="image_negative film/010.jpg" alt="Photo 10" /></div>
+        <div class="photo-card"><img src="image_negative film/012.jpg" alt="Photo 12" /></div>
+        <div class="photo-card"><img src="image_negative film/013.jpg" alt="Photo 13" /></div>
+      </div>
+    </div>
+    
+ <section class="experience" id="experience">
+  <div class="text-list" tabindex="0" aria-label="廣告及作品列表">
+    <div class="scroll-content" aria-hidden="true">
+
+        <p>——攝影——</p>
+        <p>【廣告】《優能生醫保健食品》</p>
+        <p>【廣告】《威技家電變頻冷暖分離式冷氣機》</p>
+        <p>【廣告】「欣」繫府城，與「弦」同行</p>
+        <p>【廣告】《愛喜恩𝗖𝗜&𝗖𝗜》冰淇淋廣告</p>
+        <p>【廣告】《愛喜恩𝗖𝗜&𝗖𝗜》冰淇淋廣告</p>
+        <p>【廣告】《雙肩科技𝗖𝗙》｜攝影</p>
+        <p>【廣告】《𝟮𝟬𝟮𝟰漁光島生活節𝗖𝗙》</p>
+        <p>【廣告】《創意印務設計庇護工場𝗖𝗙》
+        <p>【廣告】《臺南四百年南夏時刻CF》</p>
+        <p>【廣告】《臺南市政府身障科CF》</p>
+        <p>【廣告】《臺南市政府家庭防治科宣傳CF》
+        <p>【廣告】《成功大學博士生研究學術競賽CF》
+        <p>【廣告】《歸仁區農會-釋迦夏日派對》</p>
+
+       <p class="separator"></p>
+           <p class="separator"></p>
+               <p class="separator">_____</p>
+
+        <p>——攝影助理——</p>
+        <p>【廣告】《𝗩𝗶𝗲𝘄𝘀𝗼𝗻𝗶𝗰𝗠𝟭𝗣𝗿𝗼投影機》</p>
+        <p>【廣告】《𝗧𝗘𝗖𝗢東元電機企業CF》</p>
+        <p>【廣告】《陳其邁未來是與高雄一起大步向前》</p>
+        <p>【廣告】《強新工業三十週年形象影片》</p>
+        <p>【廣告】《海洋委員會-循環經濟向海致敬》</p>
+        <p>【廣告】《統奕包裝-𝗜𝗖𝗜𝗥𝗖𝗟𝗘智慧回收機》</p>
+        <p>【廣告】《統奕包裝-𝗜𝗖𝗜𝗥𝗖𝗟𝗘智慧回收機》</p>
+            <p class="separator"></p>
+           <p class="separator"></p>
+               <p class="separator">_____</p>
+
+        <p>——攝影——</p>
+        <p>【短片】《和平｜𝗛𝗘-𝗣𝗜𝗡𝗚》</p>
+        <p>【短片】《咕嚕咕嚕》</p>
+        <p>【短片】《爸爸的水餃｜Dumplings Daddy》</p>
+        <p>【短片】《過失至此》</p>
+        <p>【短片】《願你一切安好》</p>
+        <p>【短片】《簡單的菜頭粿》</p>
+
+     <p class="separator"></p>
+           <p class="separator"></p>
+               <p class="separator">_____</p>
+               
+        <p>——攝影助理——</p>
+         <p>【短片】《公視學生－蘇芯語改名字》</p>
+         <p>【短片】《試著在改變裡漫步吧》</p>
+         <p>【短片】《​有效期限：一輩子》</p>
+         <p>【短片】《昨日 Yes, Today》</p>
+         <p class="separator"></p>
+           <p class="separator"></p>
+               <p class="separator">_____</p>
+        <p>——攝影——</p>
+        <p>【𝗠𝗩】《天氣瓶風鈴說》</p>
+        <p>【𝗠𝗩】《明德＆善均《𝗗𝗢 𝘆𝗼𝘂 𝗹𝗼𝘃𝗲 𝗺𝗲》側拍</p>
+        
+          <p class="separator"></p>
+           <p class="separator"></p>
+               <p class="separator">_____</p>
+         <p>——攝影——</p>
+        <p>【轉播】《𝟮𝟬𝟮𝟱世界壯年運動會》</p>
+        <p>【轉播】《臺南市美術館-𝗜𝗖𝗢𝗠-𝗜𝗖𝗥年會》</p>
+        <p>【轉播】《𝗥𝗼𝗰𝗸𝘁𝗼𝗻𝗲搖滾樂團創作大賽》</p>
+        <p>【轉播】《新竹文化部－軍韻樂章演唱會》</p>
+        <p>【轉播】《臺南市政府黃家古厝演唱會》</p>
+        <p>【轉播】《暨南大學𝗨𝗦𝗥計畫成果發表會》</p>
+        <p>【轉播】《𝟭𝟭𝟮、𝟭𝟭𝟯年全中全大運射箭》</p>
+        <p>【轉播】《新竹市公所－戀戀風塵懷舊金曲之夜》</p>
+   <p class="separator"></p>
+           <p class="separator"></p>
+               <p class="separator">_____</p>
+        <p>——攝影——</p>
+        <p>【活動紀錄】《𝗧𝗛𝗖澎湖超級跑車公路菁英賽》</p>
+        <p>【活動紀錄】《𝗭𝗙直線加速全國房車直線挑戰賽》</p>
+        <p>【活動紀錄】《𝟮𝟬𝟮𝟰校長兼撞鐘台中場》</p>
+        <p>【活動紀錄】《臺南市美術館-𝗜𝗖𝗢𝗠 𝗜𝗖𝗥年會》</p>
+        <p>【活動紀錄】《𝟭𝟭𝟰年度樂儀旗舞》</p>
+        <p>【活動紀錄】《中山大學不廢少年農村循環之旅》</p>
+        <p>【活動紀錄】《中山大學－循環綠活節》</p>
+        <p>【活動紀錄】《案內製片所—大師講堂黃信堯導演》</p>
+        <p>【活動紀錄】《案內製片所—大師講堂蕭雅全導演》</p>
+        <p>【活動紀錄】《好南進行式－永續教育大展》</p>
+      </div>
+      </div>
+      <div class="intro-text">
+      <h1>𝗘𝗫𝗣𝗘𝗥𝗜𝗘𝗡𝗖𝗘｜<span>經歷</span></h1>
+        <p class="separator"> </p>
+       
+      <p>致力於用影像說故事，用畫面講述情感。</p>
+      <p class="separator"></p>
+      <p>創作故事，讓更多人看見我眼中的世界，讓更多人看見他們沒看過的，讓不認識我的人從我的作品認識我。。</p>
+      <p class="separator"></p>
+      <p>𝖳𝖾𝗅𝗅𝗂𝗇𝗀 𝗌𝗍𝗈𝗋𝗂𝖾𝗌 𝗍𝗁𝗋𝗈𝗎𝗀𝗁 𝗂𝗆𝖺𝗀𝖾𝗌, 𝖼𝗈𝗇𝗏𝖾𝗒𝗂𝗇𝗀 𝖾𝗆𝗈𝗍𝗂𝗈𝗇𝗌 𝗍𝗁𝗋𝗈𝗎𝗀𝗁 𝗏𝗂𝗌𝗎𝖺𝗅𝗌.</p>
+      <p class="separator"></p>
+      <p>𝖢𝗋𝖾𝖺𝗍𝗂𝗇𝗀 𝗌𝗍𝗈𝗋𝗂𝖾𝗌 𝗌𝗈 𝗆𝗈𝗋𝖾 𝗉𝖾𝗈𝗉𝗅𝖾 𝖼𝖺𝗇 𝗌𝖾𝖾 𝗍𝗁𝖾 𝗐𝗈𝗋𝗅𝖽 𝗍𝗁𝗋𝗈𝗎𝗀𝗁 𝗆𝗒 𝖾𝗒𝖾𝗌, 𝖽𝗂𝗌𝖼𝗈𝗏𝖾𝗋𝗂𝗇𝗀 𝗐𝗁𝖺𝗍 𝗍𝗁𝖾𝗒’𝗏𝖾 𝗇𝖾𝗏𝖾𝗋 𝗌𝖾𝖾𝗇 𝖻𝖾𝖿𝗈𝗋𝖾, 𝖺𝗇𝖽 𝗀𝖾𝗍𝗍𝗂𝗇𝗀 𝗍𝗈 𝗄𝗇𝗈𝗐 𝗆𝖾 𝗍𝗁𝗋𝗈𝗎𝗀𝗁 𝗆𝗒 𝗐𝗈𝗋𝗄. </p>
+      <p class="separator">_____</p>
+        <p class="separator"></p>
+      <h2>𝗔𝘄𝗮𝗿𝗱｜<span>得獎</span></h2>
+      <p>和平｜HE-PING｜導演、攝影</p>
+      <p>Mirada Corta Short Film Festival semi-final</p>
+       <p class="separator"></p>
+        <p class="separator"></p>
+      <p>願你一切安好｜all is well｜攝影</p>
+      <p>大和建設獎－銅獎</p>
+
+
+    </div>
+    </div>
+
+    <img src="portrait2.jpg" alt="Portrait of Wei-Jie Weng" />
+  </section>
+
+ <footer>
+
+<div class="footer-slider-container">
+  <div class="footer-slider">
+    <div class="photo-card"><img src="image_movie/和平劇照_1.jpg" alt="Photo 1" /></div>
+    <div class="photo-card"><img src="image_movie/咕嚕咕嚕1.png" alt="Photo 2" /></div>
+    <div class="photo-card"><img src="image_movie/爸爸的水餃.jpg" alt="Photo 3" /></div>
+    <div class="photo-card"><img src="image_movie/和平劇照_3.jpg"alt="Photo 4" /></div>
+    <div class="photo-card"><img src="image_movie/願你一切安好.JPG" alt="Photo 5" /></div>
+    <div class="photo-card"><img src="image_movie/和平劇照_2.jpg" alt="Photo 6" /></div>
+  </div>
+</div>
+
+
+  𝗧𝗮𝗶𝗽𝗮𝗻, 𝗧𝗮𝗶𝘄𝗮𝗻
+   <p class="separator"></p>
+        <p class="separator"></p>
+  <p>Tell｜+88693511723</p>
+  <p>Line ID｜6101091</p>
+  <p>Email｜jhzer385801@gmail.com</p>
+   <p class="separator"></p>
+        <p class="separator"></p>
+
+    <a href="https://www.instagram.com/weijie_901028/" target="_blank" style="color: #eee; text-decoration: none; margin: 0 10px;">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+    <a href="https://www.behance.net/WJ_Film1028/projects" target="_blank" style="color: #eee; text-decoration: none; margin: 0 10px;">
+      <i class="fab fa-behance"></i> Behance
+    </a>
+  </p>
+  <p class="separator"></p>
+  &copy; 2025 Wei Jie Weng. All rights reserved.
+</footer>
+
+</body>
+</html>

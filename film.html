@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wei-Jie Weng | Film Works</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background-color: #000;
+      color: #fff;
+    }
+
+    .top-bar, nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      z-index: 1000;
+      text-align: center;
+      background-color: #000;
+    }
+
+    .top-bar {
+      padding: 0.5rem;
+      font-weight: bold;
+    }
+
+    nav {
+      top: 40px;
+      padding: 0.8rem 1rem;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+    }
+
+    nav a {
+      color: #eee;
+      text-decoration: none;
+      font-size: 1.6rem;
+      transition: color 0.3s;
+    }
+
+    nav a:hover {
+      color: #bbb;
+    }
+
+    main {
+    margin-top: calc(40px + 60px + 20px); /* top-bar + nav + 緩衝 */
+    padding: 2rem 1rem;
+    max-width: 100%;
+    }
+
+    h1, h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .video-scroll-container {
+      display: flex;
+      overflow-x: auto;
+      gap: 2rem;
+      padding-bottom: 1rem;
+      scroll-snap-type: x mandatory;
+      -webkit-overflow-scrolling: touch;
+    }
+
+    .video-card {
+      flex: 0 0 auto;
+      width: 640px;
+      background-color: #111;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+      scroll-snap-align: start;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .video-card iframe {
+      width: 100%;
+      aspect-ratio: 16 / 9;
+      border: none;
+      display: block;
+    }
+
+    .video-info {
+      padding: 0.8rem 1rem;
+      background-color: #111;
+    }
+
+    .video-info h3 {
+      margin: 0;
+      font-size: 1.1rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .video-info p {
+      color: #aaa;
+      font-size: 0.85rem;
+      margin: 0;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem;
+      color: #777;
+      font-size: 0.9rem;
+      background-color: #000;
+      margin-top: 3rem;
+    }
+
+    .video-scroll-container::-webkit-scrollbar {
+      display: none;
+    }
+
+    .video-scroll-container {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="top-bar">Wei Jie Weng | Film</div>
+
+  <nav>
+   <a href="index.html#about">𝗔𝗯𝗼𝘂𝘁</a>
+    <a href="film.html">𝗙𝗶𝗹𝗺</a>
+    <a href="contact.html">𝗖𝗼𝗻𝘁𝗮𝗰𝘁</a>
+  </nav>
+
+   <p class="separator"></p>
+        <p class="separator"></p>
+
+  <main>
+    <h1>影片作品｜Film Works</h1>
+
+<h2>—— 短片 ——</h2>
+<div class="video-scroll-container">
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/vKLdAHeuISI" title="和平｜HE-PING" allowfullscreen></iframe>
+    <div class="video-info">
+      <h3>和平｜HE-PING</h3>
+      <p>短片｜導演、攝影、剪輯</p>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/E1KFwHt34KE" title="願你一切安好｜all is well" allowfullscreen></iframe>
+    <div class="video-info">
+      <h3>願你一切安好｜all is well</h3>
+      <p>短片｜攝影</p>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/JscNvVEGvMM" title="過失致死" allowfullscreen></iframe>
+    <div class="video-info">
+      <h3>過失致死</h3>
+      <p>短片｜Bcam 攝影</p>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/CUdss65In9w" title="爸爸的水餃" allowfullscreen></iframe>
+    <div class="video-info">
+      <h3>爸爸的水餃｜Dumplings Daddy</h3>
+      <p>短片｜Bcam 攝影</p>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/Ccu2NuZBwRU" title="【公視學生劇展】蘇芯語改名字｜My Name Is…" allowfullscreen></iframe>
+    <div class="video-info">
+      <h3>【公視學生劇展】蘇芯語改名字｜My Name Is…</h3>
+      <p>短片｜攝影助理</p>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/2YFDP3iNqqA" title="試著在改變裡漫步吧" allowfullscreen></iframe>
+    <div class="video-info">
+      <h3>試著在改變裡漫步吧</h3>
+      <p>短片｜攝影助理</p>
+    </div>
+  </div>
+</div>
+  <p class="separator"></p>
+    <p class="separator"></p>
+
+<h2>—— 廣告 ——</h2>
+  <p class="separator"></p>
+  <p class="separator"></p>
+<div class="video-scroll-container">
+
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/DUKyQ8G_ftA" title="【威技】變頻冷暖分離式冷氣機" allowfullscreen></iframe>
+    <div class="video-info">
+      <h3>【威技】變頻冷暖分離式冷氣機</h3>
+      <p>廣告｜攝影</p>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/pU43ix_z2Zk" title="Viewsonic M1Pro 投影機" allowfullscreen></iframe>
+    <div class="video-info">
+      <h3>《Viewsonic M1Pro》投影機</h3>
+      <p>廣告｜攝影助理</p>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/ij97YuZn2iA" title="TECO東元電機" allowfullscreen></iframe>
+    <div class="video-info">
+      <h3>【TECO東元電機】企業形象影片</h3>
+      <p>廣告｜攝影助理</p>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/Svh1XYicZ1o" title="未來是與高雄一起大步向前" allowfullscreen></iframe>
+    <div class="video-info">
+      <h3>未來是與高雄一起大步向前｜陳其邁</h3>
+      <p>廣告｜攝影助理</p>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/4jFnhBVv1j4" title="強新工業三十週年形象影片" allowfullscreen></iframe>
+    <div class="video-info">
+      <h3>【強新工業】三十週年形象影片（領航智慧篇）</h3>
+      <p>廣告｜攝影助理</p>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/9Fdy7cdKn_o" title="釋迦夏日派對＿活動前導片" allowfullscreen></iframe>
+    <div class="video-info">
+      <h3>【釋迦夏日派對】活動前導片</h3>
+      <p>廣告｜攝影助理</p>
+    </div>
+  </div>
+
+  <div class="video-card">
+    <iframe src="https://www.youtube.com/embed/oK6UWl7eAxI" title="統奕包裝 iCIRCLE 智慧回收機" allowfullscreen></iframe>
+    <div class="video-info">
+      <h3>【統奕包裝】iCIRCLE 智慧回收機</h3>
+      <p>廣告｜攝影助理</p>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+
+</div>
+
+  𝗧𝗮𝗶𝗽𝗮𝗻, 𝗧𝗮𝗶𝘄𝗮𝗻
+   <p class="separator"></p>
+        <p class="separator"></p>
+  <p>Tell｜+88693511723</p>
+  <p>Line ID｜6101091</p>
+  <p>Email｜jhzer385801@gmail.com</p>
+   <p class="separator"></p>
+        <p class="separator"></p>
+
+    <a href="https://www.instagram.com/weijie_901028/" target="_blank" style="color: #eee; text-decoration: none; margin: 0 10px;">
+      <i class="fab fa-instagram"></i> Instagram
+    </a>
+    <a href="https://www.behance.net/WJ_Film1028/projects" target="_blank" style="color: #eee; text-decoration: none; margin: 0 10px;">
+      <i class="fab fa-behance"></i> Behance
+    </a>
+  </p>
+  <p class="separator"></p>
+  &copy; 2025 Wei Jie Weng. All rights reserved.
+</footer>
+
+</body>
+</html>

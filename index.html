@@ -274,6 +274,53 @@
 }
 
   </style>
+
+  @media (max-width: 768px) {
+  nav a {
+    font-size: 1.1rem;
+    padding: 0 0.5rem;
+  }
+
+  .intro {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+  .intro img {
+    width: 90vw;
+  }
+
+  .experience {
+    flex-direction: column;
+    align-items: center;
+    height: auto;
+  }
+
+  .experience img {
+    width: 90vw;
+    height: auto;
+    max-width: 100%;
+  }
+
+  .experience .text-list {
+    border-left: none;
+    padding-left: 0;
+    max-height: 300px;
+    overflow-y: auto;
+  }
+
+  .slider, .footer-slider {
+    animation: none;
+    flex-wrap: nowrap;
+    overflow-x: scroll;
+  }
+
+  .slider::-webkit-scrollbar,
+  .footer-slider::-webkit-scrollbar {
+    display: none;
+  }
+}
   
 </head>
 <body>

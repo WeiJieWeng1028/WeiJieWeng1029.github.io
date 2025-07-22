@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Wei-Jie Weng | Film Works</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet" />
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: 'Montserrat', sans-serif;
+      color: #eee;
+      min-height: 100vh;
+      position: relative;
+      overflow: hidden;
+      background: #000;
+    }
+
+    .bg-container {
+      position: fixed;
+      inset: 0;
+      z-index: -2;
+    }
+
+    .bg-container img {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: opacity 2s ease-in-out;
+      opacity: 0;
+    }
+
+    .bg-container img.active {
+      opacity: 1;
+      z-index: -1;
+    }
+
+    /* 半透明黑色遮罩層 */
+    .bg-container::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.40);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.25);
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    .center-container {
+      position: relative;
+      z-index: 2;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 1.5rem;
+      text-align: center;
+      padding: 0 1rem;
+    }
+
+    .site-title {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 3rem;
+      font-weight: 400;
+      color: #fff;
+      margin-top: 0;
+      letter-spacing: 1px;
+
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+      animation-delay: 0.3s;
+    }
+
+    .main-nav {
+      display: flex;
+      justify-content: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+      padding: 0;
+    }
+
+    .main-nav a {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 500;
+      text-decoration: none;
+      color: #eee;
+      transition: color 0.3s ease;
+
+      opacity: 0;
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    .main-nav a:hover {
+      color: #bbb;
+    }
+
+    .main-nav a:nth-child(1) {
+      animation-delay: 0.7s;
+    }
+
+    .main-nav a:nth-child(2) {
+      animation-delay: 0.9s;
+    }
+
+    .main-nav a:nth-child(3) {
+      animation-delay: 1.1s;
+    }
+
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      color: #ccc;
+      font-size: 0.9rem;
+      margin-top: 3rem;
+      position: relative;
+      z-index: 1;
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- 背景輪播圖 -->
+  <div class="bg-container">
+    <img src="bg_images/004.jpg" class="active" />
+    <img src="bg_images/003.jpg" />
+    <img src="bg_images/002.jpg" />
+    <img src="bg_images/006.jpg" />
+    <img src="bg_images/008.jpg" />
+    <img src="bg_images/009.jpg" />
+    <img src="bg_images/010.jpg" />
+    <img src="bg_images/013.jpg" />
+  </div>
+
+  <!-- 垂直水平置中區塊 -->
+  <div class="center-container">
+    <div class="site-title">𝗪𝗲𝗶 𝗝𝗶𝗲 𝗪𝗲𝗻𝗴 | 𝗙𝗶𝗹𝗺 </div>
+    <nav class="main-nav">
+
+   <a href="index.html#about">𝗔𝗯𝗼𝘂𝘁</a>
+    <a href="film.html">𝗙𝗶𝗹𝗺</a>
+    <a href="contact.html">𝗖𝗼𝗻𝘁𝗮𝗰𝘁</a>
+  </nav>
+  </div>
+
+  <!-- 頁尾 -->
+  <footer>
+    <p>Taipan, Taiwan</p>
+    <p>Tell｜+88693511723</p>
+    <p>Line ID｜6101091</p>
+    <p>Email｜jhzer385801@gmail.com</p>
+    <p>
+      <a href="https://www.instagram.com/weijie_901028/" target="_blank" style="color: #eee; text-decoration: none; margin: 0 10px;">
+        Instagram
+      </a>
+      <a href="https://www.behance.net/WJ_Film1028/projects" target="_blank" style="color: #eee; text-decoration: none; margin: 0 10px;">
+        Behance
+      </a>
+    </p>
+    <p>&copy; 2025 Wei Jie Weng. All rights reserved.</p>
+  </footer>
+
+
+  
+  <!-- 輪播背景圖片 JavaScript -->
+  <script>
+    const images = document.querySelectorAll('.bg-container img');
+    let current = 0;
+    setInterval(() => {
+      images[current].classList.remove('active');
+      current = (current + 1) % images.length;
+      images[current].classList.add('active');
+    }, 7500);
+  </script>
+</body>
+</html>
